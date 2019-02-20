@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <title>语音测试</title>
+    <meta name="keywords" content="free mobile website templates, free mobile website template, free iphone template, free android template, free high end touch mobile templates, free high end touch mobile template" />
+    <meta name="description" content="Get free mobile website templates for Iphone , Android and High end touch mobile devices" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="css/bootstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
+</head>
+
+<body>
+
+    <script id="otherChatTmpl" type="text/html">
+        <li class="other">
+            <div class="avatar"><img src="images/watson.png" draggable="false" /></div>
+            <div class="msg">
+                <p>Waston</p>
+                <p>
+                    {{watsonWords}}
+                </p>
+                <time>{{postTime}}</time>
+            </div>
+        </li>
+    </script>
+    
+    <script id="selfChatTmpl" type="text/html">
+        <li class="self">
+            <div class="avatar"><img src="images/lhh.png" draggable="false" /></div>
+            <div class="msg">
+                <!-- <p>我</p> -->
+                <p>
+                    {{selfWords}}
+                </p>
+                <time>{{postTime}}</time>
+            </div>
+        </li>
+    </script>
+
+    <script id="wexResultTmpl" type="text/html">
+        <div class="rightTipsHeader text-center">
+            <h3>Watson为您找到以下操作指引</h3>
+            <div class="tips">关键词：<b class="blueColor">{{keywords}}</b> 共为您找到{{total}}个结果</div>
+        </div>
+        <div class="rightTipsContent">
+
+            <ul>
+
+                {{each list as value i}}
+                    <li class="docsList">
+                        <!-- <a>索引 {{i + 1}} ：</a> -->
+                        <h4><a href="{{value.es_link[0].href}}" target="_blank">{{#value.es_title}}</a></h4>
+                        <div class="postInfo">
+                            {{if value.es_author.es_name == null}}
+                            <b>admin</b> 
+                            {{/if}}
+                            {{if value.es_author.es_name != null}}
+                            <b>{{#value.es_author.es_name}}</b> 
+                            {{/if}}
+                        发布于 <span class="date">{{value.es_updated | dateFormat:'yyyy年MM月dd日 hh:mm:ss'}}</span></div>
+                        <div class="description">{{#value.es_summary}}<a href="{{value.es_link[0].href}}" target="_blank">查看详情</a></div>
+                    </li>  
+                {{/each}}
+                
+            </ul>
+
+            <div class="text-center" style="padding:0 0 40px 0;">
+            <a href="http://9.111.97.226:8393/ui/analytics" target="_blank"><button class="btn btn-primary">更多结果请点击</button></a></div>
+
+        </div>
+                              
+    </script>
+
+
+    <script id="rtcUpdateExtenstionTmpl" type="text/html">
+        <div class="rightTipsHeader text-center">
+            <h3>Watson为您找到以下操作指引</h3>
+            <div class="tips">关键词：<b class="blueColor">{{keywords}}</b> 共为您找到{{total}}个结果</div>
+        </div>
+        <div class="rightTipsContent">
+
+            {{if needTips == true}}
+            <h5 class="waringInfo">*{{tipsInfo}}</h5> 
+            {{/if}}
+
+            <ul>
+
+                {{each list as value i}}
+                    <li class="docsList">
+                        <!-- <a>索引 {{i + 1}} ：</a> -->
+                        <h4><a href="{{value.link}}" target="_blank">{{#value.title}}</a></h4>
+                        <div class="description">{{#value.description}}</div>
+                        <div class="downloadBtn"><a href="{{value.link}}" target="_blank"><button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>下载文档</button></a></div>
+                    </li>  
+                {{/each}}
+                
+            </ul>
+            <!-- 
+            <div class="text-center" style="padding:30px 0 40px 0;">
+            <h4><a href="{{url}}" target="_blank">{{url}}</a></h4>
+            <a href="{{url}}" target="_blank"><button class="btn btn-primary">点击这里重置密码</button></a></div> -->
+
+        </div>
+                              
+    </script>
+
+
+    <script id="resetPasswordTmpl" type="text/html">
+        <div class="rightTipsHeader text-center">
+            <h3>Watson为您找到以下操作指引</h3>
+            <div class="tips">关键词：<b class="blueColor">{{keywords}}</b> 共为您找到{{total}}个结果</div>
+        </div>
+        <div class="rightTipsContent">
+
+            <div class="text-center" style="padding:30px 0 40px 0;">
+            <h4><a href="{{url}}" target="_blank">{{url}}</a></h4>
+            <a href="{{url}}" target="_blank"><button class="btn btn-primary">点击这里重置密码</button></a></div>
+
+        </div>
+                              
+    </script>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="menu">
+                    <div class="back"><i class="fa fa-chevron-left"></i> <img src="images/watson.png" draggable="false" /></div>
+                    <div class="name">Watson</div>
+                    <div id="lastTime" class="last">18:09</div>
+                </div>
+                <ol id="wastonChatList" class="chat">
+                    <li class="other">
+                        <div class="avatar"><img src="images/watson.png" draggable="false" /></div>
+                        <div class="msg">
+                            <p>Watson</p>
+                            <p>
+                                欢迎访问Watson智能语音系统, 请点击语音按钮开始提问吧
+                            </p>
+                            <time id="firstTime"></time>
+                        </div>
+                    </li>
+                </ol>
+                <input id="userInputArea" class="textarea" type="text" placeholder="请输入" />
+                <span id="speech_span" style="display:inline-block;width:30px;height:30px;position:fixed; z-index:100;cursor: pointer; left:50%; margin-left: -15px; bottom:10px;">
+        <a type="button" id="micphoneElement" data-toggle="popover" data-placement="top" class="speech_icon"><i class="fa fa-microphone" style="font-size: 30px"></i></a></span>
+                <div class="emojis"></div>
+                <div class="recordUserVoice">
+                    <div id="a">点击开始录音</div>
+                    <div id="canvas_wrapper" style="display:none">
+                        <!-- <div style="display: inline">&spades;</div>        -->
+                        <canvas id="volume" height="4"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="rightTipsInfo">
+                    <span onclick="closeHelpPage();" class="closePageBtn">&times;</span>
+                    <div id="wexDocsListContent" class="rightTipsInner">
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-12">
+        
+        <div class="form">
+        <div class="input-group" style="width: 90%">
+        　　<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        　　<input type="text" class="form-control speech" placeholder="支持语音输入" id="iat_result1" style="margin-top: -20px;height: 45px">
+        </div>
+        <div class="input-group hide" style="width: 900px;margin-top: 20px">
+        　　<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        　　<input type="text" class="form-control speech" placeholder="支持语音输入" id="iat_result2" style="margin-top: -20px;height: 45px">
+        </div>
+        </div>
+    </div> -->
+        </div>
+        <!-- <div class="row">
+    <ul id="coversationList">
+        
+    </ul>
+</div> -->
+        <!-- <div class="row hide">
+    <div class="col-md-12">
+        <input type=”text” speech x-webkit-speech onwebkitspeechchange=”alert(this.value)” />
+    </div>
+</div> -->
+        <!-- <div class="modal fade" id="speech_input">
+            <div class="modal-dialog" role="document" style="width: 300px;">
+                <div class="modal-content">
+                    <div class="modal-header"> <a type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </a> </div>
+                    <div class="modal-body">
+                        <div id="header">
+                            <div class="nav">
+                                <ul>
+                                    <li><a href="#">语音输入</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin: 50px auto;">
+                            <div id="a">点击开始录音</div>
+                            <div id="canvas_wrapper" style="display:none">
+                                
+                                <canvas id="volume" height="4"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src='./js/fingerprint2.min.js'></script>
+    <script type="text/javascript" src='./js/fingerprint.js'></script>
+    <script type="text/javascript" src='./js/tts.min.js'></script>
+    <script type="text/javascript" src="./js/iat.all.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/md5.min.js"></script>
+    <script type="text/javascript" src="./js/template-debug.js"></script>
+    <script type="text/javascript" src="./js/docs.js"></script>
+    <script type="text/javascript" src="./js/demo.js"></script>
+</body>
+
+</html>

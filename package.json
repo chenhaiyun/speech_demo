@@ -1,0 +1,20 @@
+{
+  "name": "speech_demo",
+  "version": "1.0.0",
+  "description": "speech demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "speech"
+  ],
+  "author": "magic",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "proxy-middleware": "^0.15.0",
+    "url": "^0.11.0"
+  }
+}

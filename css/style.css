@@ -1,0 +1,289 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:#fffdb3;
+	font-family:Arial, Helvetica, sans-serif;
+	margin:20px;
+	padding:20px;
+	}
+#header{
+	margin:0 auto;
+	}
+.nav{
+	font-size:14px; 
+    background:#2d2d2d; 
+    -moz-border-bottom-left-radius:6px;
+    -webkit-border-bottom-left-radius:6px;
+    border-bottom-left-radius:6px; 
+    -moz-border-bottom-right-radius:6px;
+    -webkit-border-bottom-right-radius:6px;
+    border-bottom-right-radius:6px;
+    margin:0 5px;
+	}
+.nav ul{
+	list-style-type:none;
+    margin:0;
+	padding:0;
+	}
+.nav ul li{
+	display:inline;
+	margin:0;
+	padding:0;
+	}
+.nav ul li:first-child{
+	margin:0 0 0 5px;
+	}
+.nav ul li:last-child{
+	margin:0 5px 0 0;
+	}
+.nav ul li a{
+	display:inline-block;
+	color:#f2f2f2;
+	padding:10px;
+	text-decoration:none;
+	}
+.nav ul li a:hover{
+	color:#565656;
+	}
+.logo{
+	text-align:center;
+	margin:0;
+	padding:5px;
+}
+.logo img{
+	border:none;
+	}
+h2{
+	font-size:16px;
+	font-weight:bold;
+	color:#9b9b9b;
+	border:#aaaaaa 1px dashed;
+	padding:5px;
+	margin:0 5px;
+	}
+h3{
+	font-size:14px;
+	font-weight:bold;
+	color:#9b9b9b;
+	/*border:#aaaaaa 1px dashed;*/
+	padding:5px;
+	margin:0 5px;
+	}
+p{
+	text-align:left;
+	font-size:12px;
+	color:#2d2d2d;
+	margin:5px;
+	padding:0;
+	line-height:20px;
+	}
+code {
+	background: #edf0f1;
+	border: solid 1px #e7eaee;
+	border-top: solid 1px #dbdde2;
+	border-left: solid 1px #e2e5e9;
+	display: block;
+	padding: 10px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	}
+p a{
+    color:#3c9ddb;
+    text-decoration:none;
+	}
+p a:hover{
+    color:#4d4444;
+    }
+.right{
+	float:right;
+	margin:5px 10px 5px 0;
+	font-size:12px;
+	}
+.right a{
+	color:#3C87EB;
+    text-decoration:none;
+	padding:5px;
+	}
+.nav2{
+	font-size:14px; 
+    background:#2d2d2d; 
+    -moz-border-top-left-radius:6px;
+    -webkit-border-top-left-radius:6px;
+    border-top-left-radius:6px; 
+    -moz-border-top-right-radius:6px;
+    -webkit-border-top-right-radius:6px;
+    border-top-right-radius:6px;
+    margin:0 5px;
+	}
+.nav2 p{
+	text-align:center;
+	color:#f2f2f2;
+	margin:0 5px;
+	padding:5px 0;
+	}
+.nav2 p a{
+	display:inline-block;
+	color:#88aa00;
+	padding:5px;
+	text-decoration:none;
+	}
+.nav2 p a:hover{
+	color:#565656;
+	}
+
+.clear{
+	clear:both;
+	}
+#canvas_wrapper{
+	transition:all 0.2s ease;
+	margin:auto;
+	width:450px;
+	max-width:96%;
+	padding-left:20px;
+}
+#a {
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	background:rgb(60, 135, 235);
+	border-radius: 10px;
+	height:32px;
+	/*width:450px;*/
+	margin:auto;
+	max-width:96%;
+	text-align: center;
+	overflow: hidden;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.helper li {
+	padding: 10px;
+	color: #565656;
+}
+
+figure{
+	max-width:100%;
+	text-align:center;
+}
+ figure img{
+	max-width:100%;
+}
+
+.recordUserVoice {
+	position: fixed;
+	z-index: 99;
+	width: 160px;
+	bottom: 38px;
+	left:50%;
+	margin-left:-80px;
+	border: 1px solid #ccc;
+	padding:8px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.rightTipsInfo {
+	position: fixed;
+	right: -50%;
+	width: 50%;
+	top:60px;
+	bottom: 60px;
+	border-left: 2px solid #ccc;
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	background-color: #fff;
+	overflow: hidden;
+
+	-moz-transition: all 1s ease-in 0.1s;
+    -webkit-transition: all 1s ease-in 0.1s;
+    -o-transition: all 1s ease-in 0.1s;
+    transition: all 1s ease-in 0.1s;
+
+}
+
+.closePageBtn {
+	z-index: 99;
+	font-size: 32px;
+	position: absolute;
+	margin: 0px 0 0 15px;
+	color:#337ab7;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.rightTipsContent {
+	overflow: auto;
+	/*padding-bottom: 100px;*/
+}
+
+.rightTipsInner {
+	position: relative;
+	display: flex;
+	flex-direction:column;
+	padding:5px 5px 5px 5px;
+}
+
+.rightTipsInner ul{
+	padding-bottom: 20px;
+}
+
+.rightTipsHeader {
+
+}
+
+.rightTipsHeader .tips {
+	padding:0 0 10px 0;
+	color:#888;
+	border-bottom: 1px solid #ccc;
+}
+
+.docsList {
+	margin-top: 20px;
+}
+
+.docsList h4 {
+	line-height: 1em;
+	margin:3px 0;
+}
+
+.docsList .postInfo{
+    padding: 0 0 5px 0;
+    color:#666;
+}
+
+.docsList .date {
+	color: #ccc;
+}
+
+.docsList .description{
+	color: #999;
+}
+
+.pageLoading {
+	padding-top: 60px;
+	color:#999;
+}
+
+.pageLoading image{
+	width: 30px;
+}
+
+.blueColor {
+	color: #43aafa;
+}
+
+.waringInfo {
+	padding:10px 30px;
+	line-height: 1.2em;
+	color: #f60;
+}
+
+.downloadBtn {
+	margin-top: 8px;
+}
+
+
+
